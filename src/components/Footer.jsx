@@ -3,7 +3,6 @@
 
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Globe, Twitter, Instagram, Youtube } from "lucide-react";
-import { Button, Input, Textarea } from "shadcn-ui";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -16,7 +15,7 @@ export default function Footer() {
             transition={{ duration: 0.6, ease: "easeOut" }}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* About Section */}
                     <motion.div
                         className="space-y-4"
@@ -35,7 +34,7 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <motion.div
-                        className="space-y-4 md:text-center"
+                        className="space-y-4"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4, duration: 0.6 }}
@@ -171,23 +170,45 @@ export default function Footer() {
                             </motion.a>
                         </div>
                     </motion.div>
-                </div>
 
-                {/* Email Me Form */}
-                <motion.div
-                    className="mt-8 space-y-4"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.8, duration: 0.6 }}
-                >
-                    <h2 className="text-2xl font-semibold text-white">Email Me</h2>
-                    <form className="space-y-4">
-                        <Input type="text" placeholder="Your Name" className="w-full" />
-                        <Input type="email" placeholder="Your Email" className="w-full" />
-                        <Textarea placeholder="Your Message" className="w-full" />
-                        <Button type="submit" className="w-full">Send Message</Button>
-                    </form>
-                </motion.div>
+                    {/* Email Me Form */}
+                    <motion.div
+                        className="space-y-4"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.8, duration: 0.6 }}
+                    >
+                        <h2 className="text-2xl font-semibold text-white">Email Me</h2>
+                        <form className="space-y-4">
+                            <motion.input
+                                type="text"
+                                placeholder="Your Name"
+                                className="w-full px-4 py-2 bg-zinc-800 text-zinc-300 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-zinc-600"
+                                whileFocus={{ scale: 1.05 }}
+                            />
+                            <motion.input
+                                type="email"
+                                placeholder="Your Email"
+                                className="w-full px-4 py-2 bg-zinc-800 text-zinc-300 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-zinc-600"
+                                whileFocus={{ scale: 1.05 }}
+                            />
+                            <motion.textarea
+                                placeholder="Your Message"
+                                className="w-full px-4 py-2 bg-zinc-800 text-zinc-300 border border-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-zinc-600"
+                                rows="4"
+                                style={{ height: '110px' }}
+                                whileFocus={{ scale: 1.05 }}
+                            />
+                            <motion.button
+                                type="submit"
+                                className="w-full px-4 py-2 bg-zinc-800 cursor-pointer text-white rounded hover:bg-zinc-600 focus:outline-none focus:ring-2 focus:ring-zinc-600"
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                Send Message
+                            </motion.button>
+                        </form>
+                    </motion.div>
+                </div>
 
                 {/* Divider */}
                 <motion.div
