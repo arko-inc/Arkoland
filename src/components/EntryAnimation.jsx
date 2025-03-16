@@ -24,7 +24,7 @@ export default function EntryAnimation({ onComplete }) {
     const welcomeTimer = setTimeout(() => {
       setIsVisible(false); // Hide "Welcome to Arkoland"
       setShowGreetings(true); // Start showing greetings
-    }, 1000); // Adjust timing as needed
+    }, 2000); // Adjust timing as needed
 
     return () => clearTimeout(welcomeTimer);
   }, []);
@@ -41,7 +41,7 @@ export default function EntryAnimation({ onComplete }) {
     const endTimer = setTimeout(() => {
       clearInterval(greetingTimer);
       onComplete(); // Notify parent component that animation is complete
-    }, 4000);
+    }, 5000);
 
     return () => {
       clearInterval(greetingTimer);
