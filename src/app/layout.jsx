@@ -1,5 +1,5 @@
+import ClientWrapper from "@/components/ClientWrapper";
 import "./globals.css";
-
 
 export const metadata = {
   title: "Arkoland | The island of Arko's Awesome Ideas",
@@ -9,10 +9,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        {children}
+      <body className="bg-black text-zinc-300">
+        <ClientWrapper>{children}</ClientWrapper>
       </body>
     </html>
   );
