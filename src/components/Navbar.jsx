@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Home, User, Folder, Mail, Menu } from "lucide-react";
+import { Home, User, Folder, Mail, Menu, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -23,22 +23,29 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-4">
-            <Link href="/" legacyBehavior className="flex items-center space-x-2">
-              <Home />
-              <span className="text-xl font-semibold">Portfolio</span>
+            {/* Home Link: Icon to the left of text */}
+            <Link href="/" legacyBehavior>
+              <a className="flex items-center space-x-2">
+                <Home />
+                <span className="text-xl font-semibold">Portfolio</span>
+              </a>
             </Link>
           </div>
 
           <div className="hidden md:flex space-x-6">
-            <Link href="/" legacyBehavior className="hover:text-zinc-100">
-              Home
+            <Link href="/" legacyBehavior>
+              <a className="hover:text-zinc-100 flex items-center space-x-2">
+                <Home />
+                <span>Home</span>
+              </a>
             </Link>
             <div className="relative">
               <button
                 onClick={handleDropdown}
                 className="hover:text-zinc-100 flex items-center space-x-1"
               >
-                <Folder />
+                {/* Dropdown icon to the left of "Showcase" */}
+                <ChevronDown />
                 <span>Showcase</span>
               </button>
               {isDropdownOpen && (
@@ -48,34 +55,50 @@ export default function Navbar() {
                   transition={{ duration: 0.3 }}
                   className="absolute top-10 bg-zinc-800 text-zinc-300 rounded shadow-md"
                 >
-                  <Link href="/projects" legacyBehavior className="block px-4 py-2 hover:bg-zinc-700">
-                    Projects
+                  <Link href="/projects" legacyBehavior>
+                    <a className="flex items-center px-4 py-2 hover:bg-zinc-700 ">
+                  
+                      <span className="hover:text-emerald-600"><Folder/></span>
+                      
+                      <span className="ml-3">Projects</span>
+                    </a>
                   </Link>
-                  <Link href="/gallery" legacyBehavior className="block px-4 py-2 hover:bg-zinc-700">
-                    Gallery
+                  <Link href="/gallery" legacyBehavior>
+                    <a className="flex items-center px-4 py-2 hover:bg-zinc-700">
+                      <span className="hover:text-rose-500"><Folder /></span>
+                      <span className="ml-3">Gallery</span>
+                    </a>
                   </Link>
-                  <Link href="/clients" legacyBehavior className="block px-4 py-2 hover:bg-zinc-700">
-                    Clients
+                  <Link href="/clients" legacyBehavior>
+                    <a className="flex items-center px-4 py-2 hover:bg-zinc-700 ">
+                      
+                      <span className="hover:text-blue-600"><Folder /></span>
+                      <span className="ml-3">Clients</span>
+                    </a>
                   </Link>
                 </motion.div>
               )}
             </div>
-            <Link href="/contact" legacyBehavior className="hover:text-zinc-100">
-              <Mail />
-              Contact
+            <Link href="/contact" legacyBehavior>
+              <a className="hover:text-zinc-100 flex items-center space-x-2">
+                <Mail />
+                <span>Contact</span>
+              </a>
             </Link>
-            <Link href="/about" legacyBehavior className="hover:text-zinc-100">
-              <User />
-              About Me
+            <Link href="/about" legacyBehavior>
+              <a className="hover:text-zinc-100 flex items-center space-x-2">
+                <User />
+                <span>About Me</span>
+              </a>
             </Link>
-            <Link href="/services" legacyBehavior className="hover:text-zinc-100">
-              Services
+            <Link href="/services" legacyBehavior>
+              <a className="hover:text-zinc-100">Services</a>
             </Link>
-            <Link href="/blog" legacyBehavior className="hover:text-zinc-100">
-              Blog
+            <Link href="/blog" legacyBehavior>
+              <a className="hover:text-zinc-100">Blog</a>
             </Link>
-            <Link href="/testimonials" legacyBehavior className="hover:text-zinc-100">
-              Testimonials
+            <Link href="/testimonials" legacyBehavior>
+              <a className="hover:text-zinc-100">Testimonials</a>
             </Link>
           </div>
 
