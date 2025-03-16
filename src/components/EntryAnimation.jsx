@@ -65,7 +65,7 @@ export default function EntryAnimation({ onComplete }) {
             animate={{ opacity: 1 }}
             transition={{ duration: 2 }}
           >
-            Welcome to <br /> Arkoland
+            Welcome <br />to <br /> Arkoland
           </motion.div>
         </motion.div>
       )}
