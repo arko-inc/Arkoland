@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Globe, Twitter, Instagram, Youtube } from "lucide-react";
+import { Button, Input, Textarea } from "shadcn-ui";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -32,7 +33,7 @@ export default function Footer() {
                         </p>
                     </motion.div>
 
-
+                    {/* Quick Links */}
                     <motion.div
                         className="space-y-4 md:text-center"
                         initial={{ opacity: 0 }}
@@ -172,6 +173,22 @@ export default function Footer() {
                     </motion.div>
                 </div>
 
+                {/* Email Me Form */}
+                <motion.div
+                    className="mt-8 space-y-4"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.8, duration: 0.6 }}
+                >
+                    <h2 className="text-2xl font-semibold text-white">Email Me</h2>
+                    <form className="space-y-4">
+                        <Input type="text" placeholder="Your Name" className="w-full" />
+                        <Input type="email" placeholder="Your Email" className="w-full" />
+                        <Textarea placeholder="Your Message" className="w-full" />
+                        <Button type="submit" className="w-full">Send Message</Button>
+                    </form>
+                </motion.div>
+
                 {/* Divider */}
                 <motion.div
                     className="my-6 border-t border-zinc-700"
@@ -185,7 +202,7 @@ export default function Footer() {
                     className="flex flex-col sm:flex-row justify-between items-center space-y-4 text-sm text-zinc-400"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.8, duration: 0.6 }}
+                    transition={{ delay: 1, duration: 0.6 }}
                 >
                     <p>© {currentYear} @Arkoland All Rights Reserved.</p>
                     <div className="flex space-x-4">
