@@ -13,17 +13,17 @@ export default function ClientWrapper({ children }) {
   };
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       {showEntryAnimation && (
         <EntryAnimation onComplete={handleAnimationComplete} />
       )}
       {!showEntryAnimation && (
         <>
           <Navbar />
-          {children}
+          <main className="flex-grow">{children}</main> {/* This pushes footer down */}
           <Footer />
         </>
       )}
-    </>
+    </div>
   );
 }

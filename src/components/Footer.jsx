@@ -9,7 +9,7 @@ export default function Footer() {
 
     return (
         <motion.footer
-            className="bg-zinc-900 text-zinc-300"
+            className="bg-zinc-900 text-zinc-300 relative  z-50"
             initial={{ y: 50 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}

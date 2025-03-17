@@ -24,7 +24,7 @@ export default function EntryAnimation({ onComplete }) {
     const welcomeTimer = setTimeout(() => {
       setIsVisible(false); // Hide "Welcome to Arkoland"
       setShowGreetings(true); // Start showing greetings
-    }, 2000); // Adjust timing as needed
+    }, 1000); // Adjust timing as needed
 
     return () => clearTimeout(welcomeTimer);
   }, []);
@@ -35,13 +35,13 @@ export default function EntryAnimation({ onComplete }) {
     // Step 2: Start greeting sequence after "Welcome to Arkoland" disappears
     const greetingTimer = setInterval(() => {
       setCurrentGreeting((prev) => (prev + 1) % greetings.length);
-    }, 500); // Change greeting every 0.5 seconds
+    }, 400); // Change greeting every 0.5 seconds
 
     // Stop animation after 6 seconds
     const endTimer = setTimeout(() => {
       clearInterval(greetingTimer);
       onComplete(); // Notify parent component that animation is complete
-    }, 5000);
+    }, 3000);
 
     return () => {
       clearInterval(greetingTimer);

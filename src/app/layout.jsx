@@ -11,6 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-black text-zinc-300">
         <ClientWrapper>{children}</ClientWrapper>
+        
       </body>
     </html>
   );
