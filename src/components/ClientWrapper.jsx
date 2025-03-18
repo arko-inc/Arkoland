@@ -12,6 +12,9 @@ export default function ClientWrapper({ children }) {
     setShowEntryAnimation(false); // Hide the EntryAnimation component
   };
 
+
+  
+
   return (
     <div className="flex flex-col min-h-screen">
       {showEntryAnimation && (

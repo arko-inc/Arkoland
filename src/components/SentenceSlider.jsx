@@ -1,8 +1,8 @@
-
 "use client";
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
+import FirstSec from "./Firstsec";
 
 const SentenceSlider = () => {
   const sliderRef = useRef(null);
@@ -11,22 +11,36 @@ const SentenceSlider = () => {
     offset: ["start start", "end start"],
   });
 
-  // Smoother, more gradual motion
-  const slowScroll = useSpring(scrollYProgress, { stiffness: 50, damping: 20 });
-  const x = useTransform(slowScroll, [0, 1], ["74%", "-110%"]); // Starts closer to center
+  // Use a fixed speed for the sliding animation
+  const fixedSpeedScroll = useSpring(scrollYProgress, {
+    stiffness: 50,
+    damping: 20,
+    mass: 0.5,
+  });
+
+  // Transform the scroll progress into a smooth horizontal motion
+  const x = useTransform(fixedSpeedScroll, [0, 1], ["83%", "-110%"]);
 
   return (
-    <div ref={sliderRef} className="relative h-[250vh] bg-black">
-      {/* Sticky container to keep text centered */}
-      <div className="sticky top-16 h-screen flex items-center justify-center overflow-hidden">
-        <motion.div
-          style={{ x }}
-          className="whitespace-nowrap text-black bg-white text-[15vw] font-bold uppercase px-10"
-        >
-          I love Programming. Website making is my Hobby!
-        </motion.div>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }} // Initial state (hidden and slightly below)
+      whileInView={{ opacity: 1, y: 0 }} // Animate to visible and original position
+      viewport={{ once: true }} // Only animate once
+      transition={{ duration: 0.8, ease: "easeOut" }} // Animation duration and easing
+    >
+      <div ref={sliderRef} className="relative h-[300vh] bg-black -z-50 mix-blend-difference ">
+        <FirstSec/>
+        {/* Sticky container to keep text centered */}
+        <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden mix-blend-difference ">
+          <motion.div
+            style={{ x }}
+            className="whitespace-nowrap text-black bg-white text-[18vw] font-bold uppercase px-10 mix-blend-difference "
+          >
+            I love Programming. Website making is my Hobby!
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

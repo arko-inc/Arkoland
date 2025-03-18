@@ -121,9 +121,16 @@
     @apply bg-background text-foreground;
   }
 }
+@font-face {
+  font-family: Raleway;
+  src: url(/fonts/Raleway.ttf);
+}
 /* body{
   font-family: "IBM Plex Mono", monospace;
 } */
+ body{
+  font-family: Raleway;
+ }
 
 html, body {
   height: 100%;

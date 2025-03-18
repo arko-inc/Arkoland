@@ -9,7 +9,7 @@ export default function Footer() {
 
     return (
         <motion.footer
-            className="bg-zinc-900 text-zinc-300 relative  z-50"
+            className="bg-zinc-900 text-zinc-300   mix-blend-difference "
             initial={{ y: 50 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -46,7 +46,7 @@ export default function Footer() {
                                     href="#projects"
                                     className="hover:text-zinc-100"
                                     whileHover={{ 
-                                        scale: 1.1,
+                                        scale: 1.4,
                                         rotate: [0, -5, 5, -5, 5, 0],
                                         transition: { duration: 0.5 }
                                     }}
@@ -59,7 +59,7 @@ export default function Footer() {
                                     href="#about"
                                     className="hover:text-zinc-100"
                                     whileHover={{ 
-                                        scale: 1.1,
+                                        scale: 1.4,
                                         rotate: [0, -5, 5, -5, 5, 0],
                                         transition: { duration: 0.5 }
                                     }}
@@ -72,7 +72,7 @@ export default function Footer() {
                                     href="#services"
                                     className="hover:text-zinc-100"
                                     whileHover={{ 
-                                        scale: 1.1,
+                                        scale: 1.4,
                                         rotate: [0, -5, 5, -5, 5, 0],
                                         transition: { duration: 0.5 }
                                     }}
@@ -85,7 +85,7 @@ export default function Footer() {
                                     href="#contact"
                                     className="hover:text-zinc-100"
                                     whileHover={{ 
-                                        scale: 1.1,
+                                        scale: 1.4,
                                         rotate: [0, -5, 5, -5, 5, 0],
                                         transition: { duration: 0.5 }
                                     }}
@@ -105,12 +105,30 @@ export default function Footer() {
                     >
                         <h2 className="text-2xl font-semibold text-white">Follow Me</h2>
                         <div className="flex space-x-4">
+                        <motion.a
+                                href="https://yourwebsite.com/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="hover:text-violet-500"
+                                whileHover={{ scale: 1.4 }}
+                            >
+                                <Globe className="w-6 h-6" />
+                            </motion.a>
+                            <motion.a
+                                href="https://twitter.com/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="hover:text-indigo-500"
+                                whileHover={{ scale: 1.4 }}
+                            >
+                                <Twitter className="w-6 h-6" />
+                            </motion.a>
                             <motion.a
                                 href="https://github.com/"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="hover:text-zinc-100"
-                                whileHover={{ scale: 1.1 }}
+                                className="hover:text-blue-500"
+                                whileHover={{ scale: 1.4 }}
                             >
                                 <Github className="w-6 h-6" />
                             </motion.a>
@@ -118,8 +136,8 @@ export default function Footer() {
                                 href="https://linkedin.com/"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="hover:text-zinc-100"
-                                whileHover={{ scale: 1.1 }}
+                                className="hover:text-emerald-500"
+                                whileHover={{ scale: 1.4 }}
                             >
                                 <Linkedin className="w-6 h-6" />
                             </motion.a>
@@ -127,26 +145,18 @@ export default function Footer() {
                                 href="mailto:someone@example.com"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="hover:text-zinc-100"
-                                whileHover={{ scale: 1.1 }}
+                                className="hover:text-yellow-500"
+                                whileHover={{ scale: 1.4 }}
                             >
                                 <Mail className="w-6 h-6" />
                             </motion.a>
-                            <motion.a
-                                href="https://twitter.com/"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="hover:text-zinc-100"
-                                whileHover={{ scale: 1.1 }}
-                            >
-                                <Twitter className="w-6 h-6" />
-                            </motion.a>
+                          
                             <motion.a
                                 href="https://instagram.com/"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="hover:text-zinc-100"
-                                whileHover={{ scale: 1.1 }}
+                                className="hover:text-orange-500"
+                                whileHover={{ scale: 1.4 }}
                             >
                                 <Instagram className="w-6 h-6" />
                             </motion.a>
@@ -154,20 +164,12 @@ export default function Footer() {
                                 href="https://youtube.com/"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="hover:text-zinc-100"
-                                whileHover={{ scale: 1.1 }}
+                                className="hover:text-rose-500"
+                                whileHover={{ scale: 1.4 }}
                             >
                                 <Youtube className="w-6 h-6" />
                             </motion.a>
-                            <motion.a
-                                href="https://yourwebsite.com/"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="hover:text-zinc-100"
-                                whileHover={{ scale: 1.1 }}
-                            >
-                                <Globe className="w-6 h-6" />
-                            </motion.a>
+                           
                         </div>
                     </motion.div>
 

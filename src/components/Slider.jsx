@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -16,7 +16,7 @@ const Slider = () => {
   ];
 
   return (
-    <div ref={sliderRef} className="h-[300vh] relative">
+    <div ref={sliderRef} className="h-[300vh] relative cursor-none"> {/* Disable cursor here */}
       <div className="sticky top-0 h-screen overflow-hidden">
         <motion.div
           style={{ x }}
