@@ -33,11 +33,11 @@ export default function Navbar() {
   return (
     <>
       {/* Loader Component */}
-      <div className="relative mix-blend-difference ">
+      <div className="relative  ">
         <Loader isLoading={isLoading} pageName={pageName} />
 
         <motion.nav
-          className="bg-transparent fixed top-0 z-50 text-zinc-300 shadow-md w-full"
+          className="bg-transparent fixed top-0 z-50 text-lime-500 shadow-md w-full"
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5 }}
@@ -47,7 +47,7 @@ export default function Navbar() {
               <div className="flex items-center space-x-4">
                 <Link href="/" legacyBehavior>
                   <a className="flex items-center space-x-2">
-                    <span className="text-3xl text-lime-500 font-semibold">Arko</span>
+                    <span className="text-3xl text-lime-500 font-semibold">ARKO.BX</span>
                   </a>
                 </Link>
               </div>
@@ -110,7 +110,7 @@ export default function Navbar() {
                   )}
                 </div>
 
-                <Link href="/about" legacyBehavior>
+                <Link href="/aboutme" legacyBehavior>
                   <a
                     className="hover:text-zinc-100 flex items-center space-x-2"
                     onClick={() => handleLinkClick("About", "/about")}
@@ -150,7 +150,7 @@ export default function Navbar() {
                       height="24px"
                     >
                       <path
-                        fill="#BAC4C8"
+                        fill="#7ccf00"
                         d="m13 21l2-1l2 1v-7h-4m4-5V7l-2 1l-2-1v2l-2 1l2 1v2l2-1l2 1v-2l2-1m1-7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7v-2H4V5h16v10h-1v2h1a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-9 5H5V6h6m-2 5H5V9h4m2 5H5v-2h6Z"
                       />
                     </svg>
@@ -162,7 +162,7 @@ export default function Navbar() {
               {/* Mobile Menu Button */}
               <button
                 onClick={toggleMobileMenu}
-                className="md:hidden p-2 text-zinc-300 hover:text-zinc-100 focus:outline-none"
+                className="md:hidden p-2 text-lime-500 hover:text-zinc-100 focus:outline-none"
               >
                 <Menu size={24} />
               </button>
@@ -177,12 +177,12 @@ export default function Navbar() {
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "tween", duration: 0.3 }}
-                className="fixed inset-y-0 right-0 w-64 bg-zinc-800 text-zinc-300 shadow-lg z-50"
+                className="fixed inset-y-0 right-0 w-64 bg-zinc-800 text-lime-500 shadow-lg z-50"
               >
                 <div className="flex justify-end p-4">
                   <button
                     onClick={toggleMobileMenu}
-                    className="text-zinc-300 hover:text-zinc-100 focus:outline-none"
+                    className="text-lime-500 hover:text-zinc-100 focus:outline-none"
                   >
                     <X size={24} />
                   </button>
@@ -212,7 +212,7 @@ export default function Navbar() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.3 }}
-                        className="mt-2 ml-4 bg-zinc-700 text-zinc-300 rounded shadow-md"
+                        className="mt-2 ml-4 bg-zinc-700 text-lime-500 rounded shadow-md"
                       >
                         <Link href="/projects" legacyBehavior>
                           <a

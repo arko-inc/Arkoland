@@ -19,7 +19,7 @@ const SentenceSlider = () => {
   });
 
   // Transform the scroll progress into a smooth horizontal motion
-  const x = useTransform(fixedSpeedScroll, [0, 1], ["83%", "-110%"]);
+  const x = useTransform(fixedSpeedScroll, [0, 1], ["103%", "-130%"]);
 
   return (
     <motion.div
@@ -28,13 +28,13 @@ const SentenceSlider = () => {
       viewport={{ once: true }} // Only animate once
       transition={{ duration: 0.8, ease: "easeOut" }} // Animation duration and easing
     >
-      <div ref={sliderRef} className="relative h-[300vh] bg-black -z-50 mix-blend-difference ">
+      <div ref={sliderRef} className="relative h-[200vh] bg-black -z-50   bottom-40">
         <FirstSec/>
         {/* Sticky container to keep text centered */}
-        <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden mix-blend-difference ">
+        <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden -z-50 ">
           <motion.div
             style={{ x }}
-            className="whitespace-nowrap text-black bg-white text-[18vw] font-bold uppercase px-10 mix-blend-difference "
+            className="whitespace-nowrap text-black bg-white text-[18vw] font-bold uppercase px-10 bottom-96 -z-50 "
           >
             I love Programming. Website making is my Hobby!
           </motion.div>

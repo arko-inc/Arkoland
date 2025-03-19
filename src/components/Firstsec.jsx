@@ -11,6 +11,43 @@ const words = [
   "a creator",
 ];
 
+const TrailText = () => {
+  const text = "Arko";
+  const trailCount = 5; // Number of trailing copies
+  const trailDelay = 0.5; // Delay between each trailing copy
+
+  return (
+    <div className="absolute right-[1rem] rotate-0 -top-60 text-left">
+      {Array.from({ length: trailCount }).map((_, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.8, ease: "easeOut", delay: index * trailDelay }}
+        >
+          <motion.h1
+            className="text-9xl md:text-[33vh] font-bold relative text-white"
+            animate={{ y: ["0%", "10%", "0%"] }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "easeInOut",
+              delay: index * trailDelay,
+            }}
+            style={{
+              opacity: 1 - (index / trailCount), // Fade out the trailing copies
+            }}
+          >
+            {text}
+          </motion.h1>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
 export default function FirstSec() {
   const [text, setText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
@@ -65,47 +102,26 @@ export default function FirstSec() {
       transition={{ duration: 1.8, ease: "easeOut" }}
     >
       <section
-        className="relative flex items-center justify-center h-screen bg-cover bg-center"
+        className="relative flex items-center justify-center h-screen bg-cover bg-center top-[10.5rem]"
         style={{ backgroundImage: "url('/images/someone.jpeg')" }}
       >
         {/* Custom Cursor */}
         <motion.div
-          className="fixed w-24 h-24 bg-white rounded-full pointer-events-none "
+          className="fixed w-4 h-4 bg-lime-500 rounded-full pointer-events-none "
           style={{
-            left: cursorPosition.x - 48,
-            top: cursorPosition.y - 48,
+            left: cursorPosition.x - 10,
+            top: cursorPosition.y - 10,
           }}
         />
 
-        {/* Text with the blend mode applied ONLY to text */}
-        <div className="absolute right-[1rem] rotate-90 top-72 text-left mix-blend-difference">
-  <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 1.8, ease: "easeOut" }}
-  >
-    <motion.h1
-      className="text-9xl md:text-[35vh] font-bold relative text-white"
-      animate={{ y: ["0%", "10%", "0%"] }} // Moves up and down
-      transition={{
-        duration: 3, // Duration of one cycle
-        repeat: Infinity, // Infinite loop
-        repeatType: "loop", // Loop the animation
-        ease: "easeInOut", // Smooth easing
-      }}
-    >
-      Arko
-    </motion.h1>
-  </motion.div>
-</div>
-
+        {/* Replace the existing motion.h1 with TrailText */}
+        <TrailText />
 
         {/* Typing Animation */}
         <div className="absolute left-[10rem] top-16 text-left">
-          <h1 className="text-9xl md:text-6xl font-bold relative mix-blend-difference text-white">
+          <h1 className="text-9xl md:text-7xl font-bold relative  text-white">
             I am <br />
-            <span>{text}</span>
+            <span className="text">{text}</span>
             <span className="blinking-cursor text-lime-500">|</span>
           </h1>
         </div>
