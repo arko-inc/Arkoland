@@ -34,7 +34,7 @@ const SentenceSlider = () => {
         <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden -z-50 ">
           <motion.div
             style={{ x }}
-            className="whitespace-nowrap text-black bg-white text-[18vw] font-bold uppercase px-10 bottom-96 -z-50 "
+            className="whitespace-nowrap text-black bg-white text-[17vw] font-bold uppercase px-10 bottom-96 -z-50 "
           >
             I love Programming. Website making is my Hobby!
           </motion.div>

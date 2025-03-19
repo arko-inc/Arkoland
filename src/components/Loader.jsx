@@ -1,42 +1,63 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
-export default function Loader({ isLoading, pageName, onComplete }) {
-  const [showLightning, setShowLightning] = useState(false);
+const Loader = ({ isLoading, pageName }) => {
+  const circleRef = useRef(null);
+  const textRef = useRef(null);
 
   useEffect(() => {
     if (isLoading) {
-      // Trigger lightning effect after the circle fills the screen
-      const timer = setTimeout(() => {
-        setShowLightning(true);
-      }, 1000); // Adjust timing as needed
-      return () => clearTimeout(timer);
+      const tl = gsap.timeline();
+
+      // Circle grows from the bottom
+      tl.to(circleRef.current, {
+        scale: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.inOut",
+      });
+
+      // Display the page name
+      tl.to(
+        textRef.current,
+        {
+          opacity: 1,
+          duration: 0.5,
+        },
+        "-=0.5"
+      );
+
+      // Circle shrinks and disappears at the top
+      tl.to(circleRef.current, {
+        scale: 0,
+        y: "-100vh",
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.inOut",
+      });
     }
   }, [isLoading]);
 
+  if (!isLoading) return null;
+
   return (
-    <AnimatePresence>
-      {isLoading && (
-        <motion.div
-          className="fixed inset-0 flex items-center justify-center bg-black z-50"
-          initial={{ clipPath: "circle(0% at 50% 100%)" }}
-          animate={{ clipPath: "circle(150% at 50% 100%)" }}
-          exit={{ clipPath: "circle(0% at 50% 100%)" }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          onAnimationComplete={onComplete} // Call onComplete when animation finishes
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden">
+      <div
+        ref={circleRef}
+        className="w-64 h-64 bg-lime-500 rounded-full flex items-center justify-center"
+        style={{ scale: 0, y: "100vh" }}
+      >
+        <span
+          ref={textRef}
+          className="text-2xl font-bold text-white opacity-0"
         >
-          <motion.div
-            className="text-white text-6xl font-bold relative"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-          >
-            {pageName} 
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          {pageName}
+        </span>
+      </div>
+    </div>
   );
-}
+};
+
+export default Loader;

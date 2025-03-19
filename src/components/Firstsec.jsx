@@ -53,7 +53,6 @@ export default function FirstSec() {
   const [wordIndex, setWordIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const currentWord = words[wordIndex];
@@ -82,18 +81,6 @@ export default function FirstSec() {
     }
   }, [charIndex, isDeleting, wordIndex]);
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -105,15 +92,6 @@ export default function FirstSec() {
         className="relative flex items-center justify-center h-screen bg-cover bg-center top-[10.5rem]"
         style={{ backgroundImage: "url('/images/someone.jpeg')" }}
       >
-        {/* Custom Cursor */}
-        <motion.div
-          className="fixed w-4 h-4 bg-lime-500 rounded-full pointer-events-none "
-          style={{
-            left: cursorPosition.x - 10,
-            top: cursorPosition.y - 10,
-          }}
-        />
-
         {/* Replace the existing motion.h1 with TrailText */}
         <TrailText />
 

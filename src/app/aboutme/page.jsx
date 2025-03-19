@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 export default function AboutMe() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-900 text-zinc-100 px-6">
+      
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}

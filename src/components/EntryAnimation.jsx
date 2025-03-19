@@ -4,14 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const greetings = [
-  "Hello", // English (should always appear first)
-  "Bonjour", // French
-  "Holá", // Spanish
-  "স্বাগতম", // Bengali
-  "Ciao", // Italian
-  "Hallo", // German
-  "こんにちは", // Japanese (Konnichiwa)
-  "नमस्ते", // Hindi (Namaste)
+  "Hello", 
+  "Bonjour",
+  "Holá",
+  "স্বাগতম",
+  "Ciao",
+  "Hallo",
+  "こんにちは",
+  "नमस्ते",
 ];
 
 export default function EntryAnimation({ onComplete }) {
@@ -37,7 +37,7 @@ export default function EntryAnimation({ onComplete }) {
 
     const endTimer = setTimeout(() => {
       clearInterval(greetingTimer);
-      onComplete(); // Notify parent component that animation is complete
+      onComplete(); // 🔥 Notify parent that animation is done
     }, 3000);
 
     return () => {
