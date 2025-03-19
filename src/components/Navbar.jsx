@@ -37,7 +37,7 @@ export default function Navbar() {
         <Loader isLoading={isLoading} pageName={pageName} />
 
         <motion.nav
-          className="bg-transparent fixed top-0 z-50 text-lime-500 shadow-md w-full"
+          className="bg-transparent fixed top-0 z-50 text-lime-500 shadow-md w-full font-bold"
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5 }}
@@ -47,7 +47,7 @@ export default function Navbar() {
               <div className="flex items-center space-x-4">
                 <Link href="/" legacyBehavior>
                   <a className="flex items-center space-x-2">
-                    <span className="text-3xl text-lime-500 font-semibold">ARKO.BX</span>
+                    <span className="text-3xl text-lime-500 font-bold">Arko <div className="w-3 h-3 bg-lime-500 inline-block rounded-full"></div></span>
                   </a>
                 </Link>
               </div>
@@ -113,7 +113,7 @@ export default function Navbar() {
                 <Link href="/aboutme" legacyBehavior>
                   <a
                     className="hover:text-zinc-100 flex items-center space-x-2"
-                    onClick={() => handleLinkClick("About", "/about")}
+                    onClick={() => handleLinkClick("About", "/aboutme")}
                   >
                     <User />
                     <span>About Me</span>
