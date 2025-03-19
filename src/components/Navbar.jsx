@@ -13,13 +13,10 @@ export default function Navbar() {
   const [isLoading, setIsLoading] = useState(false); // State for loader
   const [pageName, setPageName] = useState(""); // State for page name
   const dropdownRef = useRef(null); // Ref for dropdown
-  const { scrollY } = useScroll(); // Track scroll position
-  const logoScale = useTransform(scrollY, [0, 100], [1, 0.8]); // Scale logo on scroll
-  const logoText = useTransform(
-    scrollY,
-    [0, 100],
-    ["Arko", "A"] // Transform "Arko" to "A"
-  );
+  const { scrollY } = useScroll();
+
+  // Dynamically slice the logo text based on scroll position
+  const logoText = useTransform(scrollY, [0, 300, 600, 900, 1200], ["Arko","Arko", "Ark", "Ar", "A"]);
 
   // Handle dropdown toggle
   const handleDropdown = () => {
@@ -67,19 +64,18 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-4">
-              <Link href="/" legacyBehavior>
-                <a className="flex items-center space-x-2">
-                  <motion.span
-                    className="text-3xl text-lime-500 font-bold"
-                    style={{ scale: logoScale }}
-                  >
-                    <motion.span>{logoText}</motion.span>
-                    <div className="w-3 h-3 bg-lime-500 inline-block rounded-full"></div>
-                  </motion.span>
-                </a>
-              </Link>
-            </div>
+          <div className="flex items-center space-x-4">
+      <Link href="/" legacyBehavior>
+        <a className="flex items-center space-x-2">
+          <motion.span
+            className="text-3xl text-lime-500 font-bold"
+          >
+            <motion.span>{logoText}</motion.span>
+            <div className="w-3 h-3 bg-lime-500 inline-block rounded-full"></div>
+          </motion.span>
+        </a>
+      </Link>
+    </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-6">
