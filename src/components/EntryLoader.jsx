@@ -47,7 +47,7 @@ const EntryLoader = () => {
   }, []);
 
   // Generate 10 random bubbles
-  const bubbles = Array.from({ length: 20 }).map(() => ({
+  const bubbles = Array.from({ length: 60 }).map(() => ({
     id: uuidv4(),
     size: Math.random() * 40 + 10, // Random size
     left: Math.random() * 100 + "%", // Random horizontal position
