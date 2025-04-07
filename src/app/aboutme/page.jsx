@@ -129,7 +129,7 @@ export default function AboutMe() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center floating-avatar "
+            className="flex justify-center floating-avatar"
           >
             <Tooltip>
               <TooltipTrigger>
