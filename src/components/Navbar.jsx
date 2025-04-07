@@ -57,7 +57,7 @@ export default function Navbar() {
       <Loader isLoading={isLoading} pageName={pageName} />
 
       <motion.nav
-        className="bg-transparent fixed top-0 z-50 text-lime-500 shadow-md w-full font-bold"
+        className="bg-black fixed top-0 z-50 text-lime-500 shadow-md w-full font-bold"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}

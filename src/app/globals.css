@@ -145,3 +145,17 @@ html, body {
 main {
   flex-grow: 1;
 }
+/* 🌿 Slim Lime Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 2px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a3e635; /* lime-400 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

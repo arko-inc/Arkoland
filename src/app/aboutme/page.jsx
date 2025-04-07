@@ -9,6 +9,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import Skill from '@/components/Skill'
+
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -55,18 +57,11 @@ export default function AboutMe() {
     return () => ctx.revert()
   }, [])
 
-  const skills = [
-    { name: 'Next.js', level: 95 },
-    { name: 'React', level: 90 },
-    { name: 'TypeScript', level: 85 },
-    { name: 'Tailwind CSS', level: 80 },
-    { name: 'Node.js', level: 75 },
-  ]
 
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-zinc-900 text-zinc-100 overflow-hidden"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-black text-zinc-100 overflow-hidden raleway"
     >
       {/* Background elements */}
       <motion.div
@@ -95,7 +90,7 @@ export default function AboutMe() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex items-center gap-4"
             >
-              <div className="w-2 h-12 bg-gradient-to-b from-purple-500 to-lime-400 rounded-full"></div>
+              <div className="w-2 h-12 bg-lime-500 rounded-full"></div>
               <h2 className="text-2xl md:text-3xl font-semibold">
                 Full Stack Developer & UI/UX Enthusiast
               </h2>
@@ -117,15 +112,15 @@ export default function AboutMe() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 text-md"
             >
-              <Button variant="outline" className="group hover:bg-lime-400 hover:text-zinc-900 transition-colors">
+              <Button variant="outline" className="group hover:bg-lime-400 text-lg text-zinc-900 transition-colors">
                 <Rocket className="mr-2 h-4 w-4 group-hover:rotate-45 transition-transform" />
                 View Projects
               </Button>
-              <Button className="bg-lime-400 text-zinc-900 hover:bg-lime-500 transition-colors">
+              <Button className="bg-lime-400 text-zinc-900 hover:bg-lime-500 text-lg group-hover:scale-110 transition-transform">
                 <Sparkles className="mr-2 h-4 w-4" />
-                Contact Me
+                My Resume
               </Button>
             </motion.div>
           </div>
@@ -156,7 +151,7 @@ export default function AboutMe() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 text-white">
           {[
             {
               icon: <Code className="h-8 w-8 text-purple-400" />,
@@ -182,7 +177,7 @@ export default function AboutMe() {
             <Card
               key={index}
               ref={el => cardRefs.current[index] = el}
-              className="bg-zinc-800 border-zinc-700 hover:border-lime-400 transition-colors duration-300"
+              className="bg-zinc-800 border-zinc-700 text-white hover:scale-110 hover:border-lime-400 transition-colors duration-300"
             >
               <CardHeader>
                 <div className="flex items-center gap-4">
@@ -199,139 +194,7 @@ export default function AboutMe() {
           ))}
         </div>
 
-        <div className="bg-zinc-800/50 rounded-xl p-8 border border-zinc-700 mb-20 relative overflow-hidden">
-  {/* Animated background elements */}
-  <motion.div 
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 0.1 }}
-    transition={{ duration: 2 }}
-    className="absolute inset-0 pointer-events-none"
-  >
-    <div className="absolute top-0 left-0 w-32 h-32 rounded-full bg-purple-500 filter blur-3xl"></div>
-    <div className="absolute bottom-0 right-0 w-40 h-40 rounded-full bg-lime-400 filter blur-3xl"></div>
-  </motion.div>
-
-  {/* Glowing border effect */}
-  <div className="absolute inset-0 rounded-xl pointer-events-none overflow-hidden z-0">
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 0.5 }}
-      className="absolute inset-0 border-2 border-transparent rounded-xl"
-      style={{
-        boxShadow: '0 0 20px rgba(163, 230, 53, 0.3)',
-        animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-      }}
-    />
-  </div>
-
-  <div className="relative z-10">
-    <motion.h3 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="text-3xl font-bold mb-8 text-center"
-    >
-      My <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-purple-500">Skills</span>
-      <motion.div 
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        className="mt-2 h-1 bg-gradient-to-r from-purple-500 via-lime-400 to-transparent"
-      />
-    </motion.h3>
-
-    <div className="space-y-6">
-      {skills.map((skill, index) => (
-        <motion.div
-          key={skill.name}
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ 
-            duration: 0.6, 
-            delay: index * 0.15,
-            type: "spring",
-            stiffness: 100
-          }}
-          className="group"
-        >
-          <div className="flex justify-between items-center mb-1">
-            <span className="text-zinc-300 font-medium text-lg group-hover:text-lime-300 transition-colors">
-              {skill.name}
-            </span>
-            <motion.span 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.15 + 0.5 }}
-              className="text-lime-400 font-mono"
-            >
-              {skill.level}%
-            </motion.span>
-          </div>
-          
-          <div className="h-3 bg-zinc-700 rounded-full overflow-hidden relative">
-            {/* Animated progress bar */}
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: `${skill.level}%` }}
-              transition={{ 
-                duration: 1.5, 
-                delay: index * 0.15 + 0.3,
-                ease: [0.43, 0.13, 0.23, 0.96]
-              }}
-              className="h-full bg-gradient-to-r from-purple-500 to-lime-400 rounded-full relative"
-            >
-              {/* Glow effect */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 0.8, 0] }}
-                transition={{ 
-                  duration: 2.5,
-                  repeat: Infinity,
-                  delay: index * 0.2 + 1
-                }}
-                className="absolute top-0 right-0 h-full w-8 bg-white blur-sm"
-              />
-            </motion.div>
-            
-            {/* Animated dots */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.15 + 1.5 }}
-              className="absolute top-0 left-0 w-full h-full flex items-center"
-            >
-              {[...Array(20)].map((_, i) => (
-                <div 
-                  key={i}
-                  className="h-1 w-1 rounded-full bg-white/10"
-                  style={{ marginLeft: `${i * 5}%` }}
-                />
-              ))}
-            </motion.div>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-
-    {/* Floating tech icons */}
-    <div className="absolute -bottom-8 -right-8 opacity-20">
-      <motion.div
-        animate={{
-          rotate: 360,
-          transition: {
-            duration: 60,
-            repeat: Infinity,
-            ease: "linear"
-          }
-        }}
-        className="text-6xl"
-      >
-        <Code className="text-lime-400" />
-      </motion.div>
-    </div>
-  </div>
-</div>
+   
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -358,6 +221,8 @@ export default function AboutMe() {
           </Button>
         </motion.div>
       </div>
+          <h2 className="text-4xl md:text-6xl font-bold text-center  bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-lime-400 to-blue-500 mt-20">My Skills</h2>
+    <Skill/>
     </section>
   )
 }
